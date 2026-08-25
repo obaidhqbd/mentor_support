@@ -16,7 +16,7 @@ function renderClasses(data) {
     const card = document.createElement("div");
     card.className = "card";
     card.innerHTML = `
-            <img src="${item.image}" alt="${item.title}">
+            <img src="${item.image}" alt="${item.title} loading="lazy" ">
             <h2>${item.title}</h2>
             <p>${item.description}</p>
             <div class="card-actions">
