@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Master Class | Your Name</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Live Continuous Animations -->
+    <div class="scanline"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="background-grid"></div>
+
+    <header>
+      <!-- Personal Branding Section -->
+      <div class="profile-section">
+        <div class="avatar-wrapper">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="Mohammed Obaidul Hoque"
+            class="avatar"
+          />
+        </div>
+        <h1 class="glitch" data-text="Mohammed Obaidul Hoque">
+          Mohammed Obaidul Hoque
+        </h1>
+        <p class="typing-text">
+          Full-Stack Web Developer | 2+ Years Experience
+        </p>
+
+        <div class="social-links">
+          <a href="https://github.com/obaidhqbd"
+            ><i class="fab fa-github"></i
+          ></a>
+          <!-- <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a> -->
+          <a href="https://obaidhqbd.github.io/next-gen-portfulio/"
+            ><i class="fas fa-globe"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="ক্লাসগুলো খুঁজুন..." />
+      </div>
+    </header>
+
+    <main>
+      <div class="class-grid" id="classGrid">
+        <!-- JS will load cards here with 3D Tilt -->
+      </div>
+    </main>
+
+    <!-- Live Code Editor Modal (Unchanged Structure) -->
+    <div id="editorModal" class="modal">
+      <div class="modal-content" id="modalContent">
+        <div class="modal-header">
+          <h2><i class="fas fa-terminal"></i> Cyber_Workspace</h2>
+          <div class="controls">
+            <button id="fullScreenBtn">
+              <i class="fas fa-expand"></i> Fullscreen
+            </button>
+            <button class="close-btn" id="closeModal">&times;</button>
+          </div>
+        </div>
+        <div class="dual-window">
+          <div class="editor-pane">
+            <div class="code-section">
+              <label>HTML</label><textarea id="htmlEditor"></textarea>
+            </div>
+            <div class="code-section">
+              <label>CSS</label><textarea id="cssEditor"></textarea>
+            </div>
+            <div class="code-section">
+              <label>JavaScript</label><textarea id="jsEditor"></textarea>
+            </div>
+          </div>
+          <div class="preview-pane">
+            <label
+              >Live Compilation Output <span class="pulse-dot"></span
+            ></label>
+            <iframe id="livePreview"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>All rights reserved by &copy 2026 Mhammed Obaidul Hoque</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

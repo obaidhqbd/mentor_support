@@ -1,0 +1,169 @@
+:root {
+    --bg-color: #03030a;
+    --neon-cyan: #00f3ff;
+    --neon-purple: #bc13fe;
+    --neon-pink: #ff007c;
+    --glass-bg: rgba(10, 10, 25, 0.4);
+    --text-main: #e0e6ed;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Consolas', 'Segoe UI', sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-main); overflow-x: hidden; }
+
+/* 1. Continuous Live Animations */
+.scanline {
+    width: 100%; height: 100px; background: linear-gradient(0deg, rgba(0, 243, 255, 0) 0%, rgba(0, 243, 255, 0.1) 50%, rgba(0, 243, 255, 0) 100%);
+    opacity: 0.5; position: fixed; bottom: 100%; z-index: 999; pointer-events: none;
+    animation: scan 6s linear infinite;
+}
+@keyframes scan { 100% { bottom: -100px; } }
+
+.orb {
+    position: fixed; border-radius: 50%; filter: blur(100px); z-index: -1;
+    animation: float 12s infinite ease-in-out alternate;
+}
+.orb-1 { width: 400px; height: 400px; background: rgba(0, 243, 255, 0.3); top: -10%; left: -10%; }
+.orb-2 { width: 500px; height: 500px; background: rgba(188, 19, 254, 0.3); bottom: -20%; right: -10%; animation-delay: -5s; }
+@keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(50px, 50px) scale(1.2); } }
+
+.background-grid {
+    position: fixed; width: 200vw; height: 200vh; top: -50vh; left: -50vw; z-index: -2;
+    background-image: linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px; transform: perspective(500px) rotateX(60deg);
+    animation: gridMove 10s linear infinite;
+}
+@keyframes gridMove { 100% { transform: perspective(500px) rotateX(60deg) translateY(40px); } }
+
+/* 2. Personal Branding Styles */
+header { padding: 40px 20px 20px; text-align: center; }
+.profile-section { margin-bottom: 30px; }
+
+.avatar-wrapper {
+    position: relative; width: 140px; height: 140px; margin: 0 auto 20px;
+    border-radius: 50%; padding: 4px; display: flex; justify-content: center; align-items: center;
+    background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+    animation: borderSpin 4s linear infinite;
+}
+.avatar-wrapper img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg-color); }
+@keyframes borderSpin { 100% { filter: hue-rotate(360deg); } }
+
+.glitch { font-size: 2.5rem; color: #fff; text-shadow: 0 0 10px var(--neon-cyan); letter-spacing: 2px; margin-bottom: 10px; }
+.typing-text { font-size: 1.1rem; color: var(--neon-cyan); margin-bottom: 20px; font-weight: bold; text-shadow: 0 0 5px var(--neon-cyan); }
+
+.social-links { display: flex; justify-content: center; gap: 15px; }
+.social-links a {
+    color: var(--text-main); font-size: 1.5rem; width: 45px; height: 45px;
+    display: flex; justify-content: center; align-items: center; border-radius: 50%;
+    background: var(--glass-bg); border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
+}
+.social-links a:hover {
+    color: var(--neon-cyan); border-color: var(--neon-cyan); box-shadow: 0 0 15px var(--neon-cyan); transform: translateY(-5px);
+}
+
+/* 3. Search & Grid */
+.search-box { position: relative; max-width: 600px; margin: auto; }
+.search-box input {
+    width: 100%; padding: 15px 20px 15px 50px; background: rgba(0,0,0,0.6);
+    border: 1px solid var(--neon-purple); color: #fff; border-radius: 8px; font-size: 1.1rem; transition: 0.3s;
+}
+.search-box input:focus { box-shadow: 0 0 20px rgba(188, 19, 254, 0.5); outline: none; border-color: var(--neon-cyan); }
+.search-box i { position: absolute; left: 20px; top: 18px; font-size: 1.2rem; color: var(--neon-purple); }
+
+.class-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 20px 50px; max-width: 1400px; margin: auto; }
+
+/* 4. 3D Card Styles */
+.card {
+    background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid rgba(0, 243, 255, 0.2);
+    border-radius: 12px; padding: 20px; display: flex; flex-direction: column; cursor: pointer;
+    transform-style: preserve-3d; transition: border 0.3s, box-shadow 0.3s;
+}
+.card:hover { border-color: var(--neon-cyan); box-shadow: 0 0 25px rgba(0, 243, 255, 0.2); }
+.card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; transform: translateZ(30px); }
+.card h2 { font-size: 1.4rem; color: var(--neon-purple); margin-bottom: 10px; transform: translateZ(40px); }
+.card p { flex-grow: 1; font-size: 0.9rem; color: #b3b3b3; line-height: 1.6; margin-bottom: 20px; transform: translateZ(20px); }
+.card-actions { display: flex; gap: 10px; transform: translateZ(30px); }
+
+/* Buttons & Modal remain exactly the same as previous code, just copy those below this line */
+.btn { flex: 1; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; text-align: center; text-decoration: none; }
+.btn-live { background: transparent; color: var(--neon-cyan); border: 1px solid var(--neon-cyan); }
+.btn-live:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 15px var(--neon-cyan); }
+.btn-dl { background: var(--neon-purple); color: #fff; }
+.btn-dl:hover { background: #d035ff; box-shadow: 0 0 15px var(--neon-purple); }
+
+/* Modal CSS (Keep your previous modal CSS here) */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); }
+.modal-content { background: var(--bg-color); width: 95%; height: 95%; margin: 1.5% auto; border: 1px solid var(--neon-cyan); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; }
+.modal-content.fullscreen-mode { width: 100%; height: 100%; margin: 0; border-radius: 0; border: none; }
+.modal-header { display: flex; justify-content: space-between; padding: 15px; background: rgba(0,243,255,0.1); border-bottom: 1px solid var(--neon-cyan); }
+.modal-header h2 { color: var(--neon-cyan); }
+.controls button { background: transparent; border: 1px solid var(--neon-cyan); color: var(--neon-cyan); padding: 8px 15px; cursor: pointer; border-radius: 5px; margin-left: 10px; }
+.controls button:hover { background: var(--neon-cyan); color: #000; }
+.dual-window { display: flex; flex: 1; overflow: hidden; }
+.editor-pane, .preview-pane { flex: 1; display: flex; flex-direction: column; padding: 10px; }
+.editor-pane { border-right: 1px solid var(--neon-purple); }
+.code-section { flex: 1; display: flex; flex-direction: column; margin-bottom: 10px; }
+textarea { flex: 1; background: #050510; color: #00f3ff; border: 1px solid #333; padding: 10px; font-family: 'Consolas', monospace; outline: none; border-radius: 5px; }
+iframe { flex: 1; background: #fff; border: none; border-radius: 5px; width: 100%; }
+.pulse-dot { display: inline-block; width: 8px; height: 8px; background: #0f0; border-radius: 50%; margin-left: 10px; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+/* =========================================
+   5. Footer Section (Futuristic Style)
+   ========================================= */
+footer {
+    position: relative;
+    margin-top: 60px;
+    padding: 25px 20px;
+    text-align: center;
+    background: var(--glass-bg); /* গ্লাস ইফেক্ট */
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(0, 243, 255, 0.3);
+    box-shadow: 0 -5px 25px rgba(0, 243, 255, 0.1);
+    z-index: 10; /* ব্যাকগ্রাউন্ড অ্যানিমেশনের উপরে রাখার জন্য */
+    overflow: hidden;
+}
+
+/* ফুটারের উপরের বর্ডারে চলমান নিওন লাইট অ্যানিমেশন */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-purple), var(--neon-cyan), transparent);
+    animation: footerGlow 3s linear infinite;
+}
+
+footer p {
+    color: var(--text-main);
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    font-weight: 400;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in-out;
+    cursor: default;
+}
+
+/* মাউস হোভার করলে আপনার নাম এবং টেক্সট নিওন গ্লো করবে */
+footer p:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-purple);
+    transform: scale(1.02); /* সামান্য জুম ইফেক্ট */
+}
+
+/* রানিং লাইট অ্যানিমেশনের কি-ফ্রেম */
+@keyframes footerGlow {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* মোবাইল স্ক্রিনের জন্য রেস্পন্সিভ অ্যাডজাস্টমেন্ট */
+@media (max-width: 768px) {
+    footer {
+        margin-top: 40px;
+        padding: 20px 15px;
+    }
+    footer p {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "Futuristic Glowing Card",
+    "description": "CSS3 ব্যবহার করে কীভাবে একটি ফিউচারিস্টিক হোভার অ্যানিমেশনযুক্ত কার্ড তৈরি করবেন, তা এই ক্লাসে দেখানো হয়েছে।",
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80",
+    "htmlCode": "<div class=\"card\">\n  <h2>Hello Future</h2>\n</div>",
+    "cssCode": "body { background: #0f0f1b; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }\n.card {\n  background: rgba(255, 255, 255, 0.05);\n  padding: 40px;\n  border-radius: 15px;\n  border: 1px solid rgba(0, 255, 255, 0.3);\n  color: #0ff;\n  box-shadow: 0 0 15px rgba(0,255,255,0.2);\n  transition: 0.3s;\n}\n.card:hover {\n  box-shadow: 0 0 30px rgba(0,255,255,0.6);\n  transform: translateY(-10px) scale(1.05);\n}",
+    "jsCode": "console.log('Welcome to the future of Web Dev!');",
+    "downloadLink": "#"
+  }
+]
